@@ -28,7 +28,9 @@
   Return the result of invoking the callback.
 */
 
-// Code Here
+const first = (array, callBackFn) =>{
+  return callBackFn(array[0])
+}
 
 // Do not edit the code below.
 const names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -48,8 +50,9 @@ first(names, function (firstName) {
   Return the result of invoking the callback.
 */
 
-//Code Here
-
+const last = (array, callBackFn) => {
+  return callBackFn(array.pop())
+}
 // Do not edit the code below.
 // Your function is called here
 last(names, (lastName) => {
@@ -67,6 +70,11 @@ last(names, (lastName) => {
 
 //Code Here
 
+const multiply = (num1, num2, callBackFn) =>{
+  return callBackFn(num1 * num2)
+}
+
+
 // Do not edit the code below.
 // Your function is called here
 multiply(4, 3, function (answer) {
@@ -83,7 +91,14 @@ multiply(4, 3, function (answer) {
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-//Code Here
+const contains = (array, name, callBackFn) => {
+  if (array.includes(name)){
+    return callBackFn(true)
+  } else {
+    return callBackFn(false)
+
+  }
+}
 
 // Do not edit the code below.
 // Your function is called here
@@ -103,7 +118,11 @@ contains(names, 'Colt', (result) => {
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
-//Code Here
+const each = (array, callBackFn) => {
+  array.forEach((name, index) => {
+    callBackFn(name, index)
+  })
+}
 
 // Do not edit the code below.
 // Your function is called here
@@ -120,7 +139,14 @@ each(names, (item, index) => {
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-// Code here
+const getUserById =(users, id , callBackFn) => {
+  users.forEach((user) => {
+    if(user.id === id) {
+      callBackFn(user)
+    }
+  })
+  users.includes()
+}
 
 // Do not edit the code below.
 const users = [
@@ -170,7 +196,11 @@ getUserById(users, '16t', (user) => {
 // Make sure to use an arrow function.
 // You should not use a for loop, but should use the filter method instead.
 
-// REPLACE THIS WITH YOUR CODE
+const evens = (array) => {
+  return array.filter((num) => num % 2 === 0)
+
+  
+}
 
 /// /////// PROBLEM 8 //////////
 
@@ -182,7 +212,9 @@ getUserById(users, '16t', (user) => {
 //
 // Make sure to use an arrow function combined with the filter method (not a for loop).
 
-// REPLACE THIS WITH YOUR CODE
+const startWithLetterA = (array) => {
+  return array.filter((word) => word.startsWith(`A`) || word.startsWith(`a`)) 
+}
 
 /// /////// PROBLEM 9 //////////
 
@@ -192,7 +224,9 @@ getUserById(users, '16t', (user) => {
 //
 // Make sure to use arrow functions combined with the map method.
 
-// REPLACE THIS WITH YOUR CODE
+const formalGreeting = (array) => {
+  return array.map((name) => `Hello, ${name}`)
+}
 
 /// /////// PROBLEM 10 //////////
 
@@ -202,7 +236,9 @@ getUserById(users, '16t', (user) => {
 // Remember that by default, JavaScript sorts by converting all items to strings. So you
 // will need to provide a compare function.
 
-// REPLACE THIS WITH YOUR CODE
+const sortNumbers = (array) => {
+  return array.sort((num1, num2) => num1 -num2) 
+}
 
 /// /////// PROBLEM 11 //////////
 
@@ -222,8 +258,10 @@ const employees = [
 ];
 // Do not edit the code above.
 
-// REPLACE THIS WITH YOUR CODE
-
+const findProgrammer = (array) => {
+  let tempArray =array.filter((employee) => employee.job === `programmer`)
+  return  tempArray.pop()
+}
 ////////// PROBLEM 12 //////////
 
 // Do not edit code below.
@@ -249,7 +287,11 @@ const orders = [
   Example: if tax is 0.07, the price afterTax could be calculated like this: afterTax = price * 1.07)
 */
 
-let orderTotals; // Code here
+let orderTotals;
+
+orderTotals = orders.forEach((order) = order.price * ( 1 + order.tax ))
+
+// Code here
 
 /// /////// PROBLEM 13 //////////
 
